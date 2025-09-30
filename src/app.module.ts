@@ -1,10 +1,13 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import { EventsModule } from './modules/events/events.module';
+import { ClubsModule } from './modules/clubs/clubs.module';
+import { AuthModule } from './modules/auth/auth.module';
+import { ClubsV2Module } from './modules/clubs-v2/clubs-v2.module';
+import { PrismaService } from './prisma/prisma.service';
 
 @Module({
-  imports: [],
-  controllers: [AppController],
-  providers: [AppService],
+  imports: [EventsModule, ClubsModule, AuthModule, ClubsV2Module],
+  controllers: [],
+  providers: [PrismaService],
 })
 export class AppModule {}
